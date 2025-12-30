@@ -35,29 +35,42 @@
         <div id="wrap">
             <div id="text">
                 <div id="code">
-                    <!-- As this New Year begins, I don’t wish for moments or days—
-I wish for you.
-Through every season, every dream, every silent prayer…
-I want my life to keep choosing you, again and again.
+                    <!-- <span class="say" id="newyear"><h1>Happ New Year 2026</h1></span><br> -->
+                     <h1 class="happy"> Happy <br> <div id="new">New <div id="year">Year</div> </div> <div id="num">2026</div></h1>
 
-If love ever had a forever,
-I know it would look like us -->
-                    <span class="say">Neetu  💞</span><br>
+                    <span class="say">Neetu 💞</span><br>
                     <span class="say"> As this New Year begins, I don’t wish for moments or days </span><br>
                     <span class="say">I wish for you 💕</span><br>
                     <span class="say">Through every season, every dream, every silent prayer…❤️</span><br>
                     <span class="say">If love ever had a forever, 🥺 ❤️</span><br>
                     <span class="say">I know it would look like us ❤️😘</span><br>
+                    <button class="btn" id="btn__letter" onclick="navigateToSurprise()">
+                        <div class="mail">
+                                For Your Mom 🎁
+                                <i class="fa-regular"></i>
+                            </div>
+                    </button>
+                    <!-- <div class="btn">
+                        <button id="btn__letter" onclick="navigateToSurprise()">
+                            <div class="mail">
+                                Surprise Present 🎁
+                                <i class="fa-regular"></i>
+                            </div>
+                        </button>
+                    </div> -->
                 </div>
+                <!-- Suprise -->
             </div>
-            <div id="clock-box">
-                <!-- <span id="clock">577 days 0 hours 0 minutes 0 seconds</span> Change to "6940 days..." if needed -->
-            </div>
+            
+
             <canvas id="canvas" width="1100" height="680"></canvas>
         </div>
     </div>
 
     <script>
+        function navigateToSurprise() {
+      window.location.href = 'surprise.html';
+    }
         (function () {
             var canvas = $('#canvas');
 
@@ -218,7 +231,7 @@ I know it would look like us -->
             }
 
             // Create snowflakes continuously
-            setInterval(createSnowflake, 200);
+            setInterval(createSnowflake, 800);
             for (let i = 0; i < 30; i++) {
                 setTimeout(createSnowflake, i * 200);
             }
@@ -237,7 +250,7 @@ I know it would look like us -->
             for (let i = 0; i < 8; i++) {
                 const ornament = document.createElement('div');
                 ornament.className = 'ornament';
-                ornament.style.left = Math.random() * 90 + 5 + '%';
+                ornament.style.left = Math.random() * 90 + 2 + '%';
                 ornament.style.top = Math.random() * 20 + 5 + '%';
                 ornament.style.animationDelay = Math.random() * 3 + 's';
                 document.body.appendChild(ornament);
