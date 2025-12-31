@@ -708,7 +708,8 @@
 
         h1 {
             font-size: 3rem;
-            text-shadow: 0 0 10px #f39c12, 0 0 20px #e67e22;
+            color: #f89d16;
+            /* text-shadow: 0 0 10px #f39c12, 0 0 20px #e67e22; */
             position: absolute;
             top: -20px;
 
@@ -755,8 +756,8 @@
         }
 
         .box {
-            width: 150px;
-            height: 150px;
+            width: 50px;
+            height: 50px;
             background: linear-gradient(135deg, #ff8c00, #ff3d00);
             border-radius: 10px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
@@ -765,17 +766,20 @@
             align-items: center;
             cursor: pointer;
             position: relative;
+            z-index: 10;
             transition: transform 0.3s, opacity 0.3s;
         }
 
         .box:hover {
-            transform: scale(1.1);
+            transform: scale(2.1);
         }
 
         .box::before {
             content: "🦋";
-            font-size: 50px;
+            font-size: 100px;
             animation: bounce 1.2s infinite;
+            pointer-events: none;
+            /* 🔥 THIS FIXES IT */
         }
 
         @keyframes bounce {
@@ -825,12 +829,49 @@
             z-index: 999;
             pointer-events: none;
         }
+
+        .gold-glitter {
+            top: -4rem;
+            width: 100%;
+            justify-content: center;
+            text-align: center;
+            font-size: 80px;
+            font-weight: 300;
+            background: linear-gradient(90deg, #ba943e 0%, #ecac20 20%, #ba943e 39%, #f9f4b4 50%, #ba943e 60%, #ecac20 80%, #ba943e 100%);
+            /* Gold color stops */
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+            /* Add subtle depth with text shadow */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            background-size: 300% 400%;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            animation: glitter 3s linear infinite;
+            text-shadow:
+                0 0 5px rgba(255, 215, 0, 0.6),
+                0 0 15px rgba(255, 200, 0, 0.4),
+                0 0 30px rgba(255, 180, 0, 0.3);
+        }
+
+        @keyframes glitter {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            100% {
+                background-position: 100% 50%;
+            }
+        }
     </style>
 </head>
 
 <body>
     <audio autoPlay loop>
-        <source src="./AUD-20250203-WA0001_.mp3" type="audio/mp3" />
+        <source src="./how december goes - Kashbocks.mp3" type="audio/mp3" />
         Your browser does not support the audio element.
     </audio>
     <!-- String Lights -->
@@ -848,7 +889,7 @@
 
     <!-- Confetti -->
     <div id="confetti"></div>
-    <h1>Surprise!</h1>
+    <h1 class="gold-glitter">Sunshine</h1>
 
     <div class="box" id="box" onclick="startConfetti(), showMessage(), showCollage(), startConfetti1()"></div>
     <!-- <div class="message" id="message">Neetu, my Sunshine 🎂, Some birthdays are special. Yours? It’s the day the world
@@ -868,8 +909,24 @@
     <!-- <div class="collage-container" id="collageContainer"> -->
 
     <div class="message" id="message">
-        <b>Neetu you gave me a forever...within the numbered days and for that I am eternally greatful 🤍 </b> 
-        
+        <b>Neetu you gave me a forever...within the numbered days and for that I am eternally greatful 🤍 , I see how
+            hard you work.
+            I see your strength, even on the days you feel tired or unsure.
+            And I want you to know I believe in you completely.
+
+            Your dreams matter.
+            Your efforts will bloom.
+            And your future is going to be beautiful.
+
+            May this year bring you closer to everything you’ve been working for.
+            May you always feel proud of yourself, confident in your path, and surrounded by love.
+            No matter how far you go or how high you rise,
+            I’ll always be here supporting you, admiring you, and loving you.
+
+            You are special.
+            You are capable.
+            And you are deeply loved. 💛</b>
+
     </div>
 
 
