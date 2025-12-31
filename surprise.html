@@ -850,9 +850,47 @@
     <!-- <div class="birthday-text">🎂</div> -->
     </div>
 
+    <!-- Confetti Library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <script>
+    let confettiRunning = true;
+
+    const colors = ['#bb0000', '#ffffff'];
+
+    function runConfetti() {
+      if (!confettiRunning) return;
+
+      confetti({
+        particleCount: 2,
+        angle: 60,
+        spread: 55,
+        origin: { x: 0 },
+        colors: colors
+      });
+
+      confetti({
+        particleCount: 2,
+        angle: 120,
+        spread: 55,
+        origin: { x: 1 },
+        colors: colors
+      });
+
+      requestAnimationFrame(runConfetti);
+    }
+
+    // Start automatically
+    runConfetti();
+
+    // function stopConfetti() {
+    //   confettiRunning = false;
+    //   confetti.reset(); // clears canvas
+    // }
+  </script>
 
     <script>
-         const colors = ['#ff6b9d', '#4bcffa', '#7bed9f', '#ffa502', '#ff6348', '#a29bfe', '#fd79a8', '#fdcb6e'];
+         const colors1 = ['#ff6b9d', '#4bcffa', '#7bed9f', '#ffa502', '#ff6348', '#a29bfe', '#fd79a8', '#fdcb6e'];
         
         // Create String Lights
         const lightsContainer = document.getElementById('lights');
@@ -928,18 +966,18 @@
         }
 
         // Create Confetti
-        const confettiContainer = document.getElementById('confetti');
-        for (let i = 0; i < 100; i++) {
-            const confetti = document.createElement('div');
-            confetti.className = 'confetti';
-            confetti.style.left = Math.random() * 100 + '%';
-            confetti.style.top = Math.random() * -100 + '%';
-            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-            confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
-            confetti.style.animationDelay = Math.random() * 5 + 's';
-            confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
-            confettiContainer.appendChild(confetti);
-        }
+        // const confettiContainer = document.getElementById('confetti');
+        // for (let i = 0; i < 100; i++) {
+        //     const confetti = document.createElement('div');
+        //     confetti.className = 'confetti';
+        //     confetti.style.left = Math.random() * 100 + '%';
+        //     confetti.style.top = Math.random() * -100 + '%';
+        //     confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        //     confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+        //     confetti.style.animationDelay = Math.random() * 5 + 's';
+        //     confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+        //     confettiContainer.appendChild(confetti);
+        // }
 
         // //         const text = `Neetu, This New Year begins, there’s one more beautiful reason to smile...
         // // your mom’s birthday. I truly wish her good health, peace, and happiness always.
@@ -1014,28 +1052,28 @@
                 }
             }
 
-            function animateFireworks() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            // function animateFireworks() {
+            //     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-                particles.forEach((particle, index) => {
-                    particle.x += particle.dx;
-                    particle.y += particle.dy;
-                    particle.life -= 1;
+            //     particles.forEach((particle, index) => {
+            //         particle.x += particle.dx;
+            //         particle.y += particle.dy;
+            //         particle.life -= 1;
 
-                    ctx.beginPath();
-                    ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
-                    ctx.fillStyle = particle.color;
-                    ctx.fill();
+            //         ctx.beginPath();
+            //         ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+            //         ctx.fillStyle = particle.color;
+            //         ctx.fill();
 
-                    if (particle.life <= 0) {
-                        particles.splice(index, 1);
-                    }
-                });
+            //         if (particle.life <= 0) {
+            //             particles.splice(index, 1);
+            //         }
+            //     });
 
-                if (particles.length > 0) {
-                    requestAnimationFrame(animateFireworks);
-                }
-            }
+            //     if (particles.length > 0) {
+            //         requestAnimationFrame(animateFireworks);
+            //     }
+            // }
 
             canvas.addEventListener("click", (event) => {
                 const x = event.clientX;
@@ -1092,26 +1130,26 @@
             clearConfetti();
         }
 
-        function createConfetti() {
-            const colors = ['#ff6b6b', '#feca57', '#48dbfb', '#ff9ff3', '#1dd1a1', '#ffeaa7'];
+        // function createConfetti() {
+        //     const colors = ['#ff6b6b', '#feca57', '#48dbfb', '#ff9ff3', '#1dd1a1', '#ffeaa7'];
 
-            for (let i = 0; i < 50; i++) {
-                setTimeout(() => {
-                    const confetti = document.createElement('div');
-                    confetti.className = 'confetti';
-                    confetti.style.left = Math.random() * 100 + 'vw';
-                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                    confetti.style.animationDelay = Math.random() * 2 + 's';
-                    confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+        //     for (let i = 0; i < 50; i++) {
+        //         setTimeout(() => {
+        //             const confetti = document.createElement('div');
+        //             confetti.className = 'confetti';
+        //             confetti.style.left = Math.random() * 100 + 'vw';
+        //             confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        //             confetti.style.animationDelay = Math.random() * 2 + 's';
+        //             confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
 
-                    document.body.appendChild(confetti);
+        //             document.body.appendChild(confetti);
 
-                    setTimeout(() => {
-                        confetti.remove();
-                    }, 5000);
-                }, i * 100);
-            }
-        }
+        //             setTimeout(() => {
+        //                 confetti.remove();
+        //             }, 5000);
+        //         }, i * 100);
+        //     }
+        // }
 
         function clearConfetti() {
             const confetti = document.querySelectorAll('.confetti');
